@@ -1,0 +1,14 @@
+<script>
+var number=Array.apply(null,Array(100)).map(function( _, i ){return i+1;});
+
+document.write(number);
+console.log(number);
+
+var array=number.map(function(current){
+    return ((current%3==0)&&(current%5==0)) ? 'c' :(current%3==0) ? 'a' : (current%5==0) ? 'b' : current;
+           
+}) 
+   console.log(array );
+  document.write(array);     
+        
+</script>

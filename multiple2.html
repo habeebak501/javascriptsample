@@ -1,0 +1,24 @@
+<script>
+var number=Array.apply(null,Array(100)).map(function( _, i ){return i+1;});
+     // document.write(number);
+number.map(function(current){
+     if(current%3==0&&current%5==0){
+           document.write("c"+"<br>");
+        }
+      else if(current%3==0){
+           document.write("a"+"<br>");
+         }
+          else if(current%5==0){
+             document.write("b"+"<br>");
+           }
+            else{
+             document.write(+current+"<br>");
+                }
+})
+                      
+
+
+
+             //number.map(function(current){
+          //document.write(current)});
+</script>

@@ -1,0 +1,81 @@
+<script>
+var Bst=function(){
+var Node=function(leftChild,rightChild,key,value,parent){
+return {
+                leftChild: (typeof leftChild === "undefined") ? null : 
+                           leftChild,
+                key: (typeof key === "undefined") ? null : key,
+                value: (typeof value === "undefined") ? null : value,
+                rightChild: (typeof rightChild === "undefined") ? null : 
+                            rightChild,
+                parent: (typeof parent === "undefined") ? null : parent
+            };
+        },
+ root = new Node(),
+
+
+
+        insertNode = function (node, key, value, parent) {
+            if (node.key === null) {
+                node.leftChild = new Node();
+                node.key = key;
+                node.value = value;
+                node.rightChild = new Node();
+                node.parent = parent;
+                return true;
+            }
+            
+            var nodeKey = parseInt(node.key, 10);
+
+            if (key < nodeKey) {
+                insertNode(node.leftChild, key, value, node);
+            } else if (key > nodeKey) {
+                insertNode(node.rightChild, key, value, node);
+            } else { // key is equal to node key, update the value
+                node.value = value;
+                return true;
+            }
+        },
+
+   traverseNode = function (node, callback) {
+            if (node.key !== null) {
+                traverseNode(node.leftChild, callback);
+                callback(node.key, node.value);
+                traverseNode(node.rightChild, callback);
+            }
+            
+            return true;
+        },
+
+
+
+
+        var insert: function (key, value) {
+            var keyInt = parseInt(key, 10);
+            
+            if (isNaN(keyInt)) {
+                return undefined; // key must be a number
+            } else {
+                return insertNode(root, keyInt, value, null);
+            }
+        };
+
+
+        traverse: function (callback) {
+            if (typeof callback === "undefined") {
+                callback = function (key, value) {
+                    console.log(key + ": " + value);
+                };
+            }
+
+            return traverseNode(root, callback);
+        },
+
+var Btree=new Bst();
+Btree.insert(1,"abc");
+Btree.insert(10,"bbb");
+Btree.insert(25,"ccc");
+Btree.traverse();
+</script>
+
+

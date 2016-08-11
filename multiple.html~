@@ -1,0 +1,16 @@
+<script>
+//var number=Number(prompt("enter the one number with in the range 1-100:"));
+for(var i=1;i<=100;i++){
+if(i%3==0){
+document.write("3 is divisible by number"+i+"<br>");
+}
+else if(i%5==0){
+document.write("5 is divisible by number"+i+"<br>");
+}
+else{
+document.write("3 and 5 not divisible by number "+i+"<br>");
+}
+document.write("<br>");
+}
+</script>
+
